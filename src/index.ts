@@ -79,19 +79,18 @@ function createTotals(repos: Repository[]) {
   return percentages.sort((a, b) => b.percentage - a.percentage)
 }
 
-export async function githubLanguageUsage(token: string, user: string, repos = 100, lang = 100) {
+export async function githubLanguageUsage(token: string, user: string, repos = 100) {
   const endpoint = 'https://api.github.com/graphql'
   const variables = {
     user,
-    repos,
-    lang
+    repos
   }
-  const query = `query($user: String!, $repos: Int!, $lang: Int!) {
+  const query = `query($user: String!, $repos: Int!) {
   user(login: $user) {
     repositories(first: $repos) {
       nodes {
         name
-        languages(first: $lang) {
+        languages(first: 100) {
           edges {
             size
           }
