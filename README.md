@@ -1,7 +1,7 @@
 # github-language-usage
 
-Search for all the languages ​​used by a given github user and returns the values ​​in percentages.
-Package is written in Typescript.
+Search for all the languages ​​used by a given github user and returns the average values ​​in
+percentages. Package is written in Typescript.
 
 ## Installation
 

@@ -1,7 +1,7 @@
 {
   "name": "github-language-usage",
   "version": "1.0.0",
-  "description": "Searches for all the languages ​​used by a given github user and returns the values ​​in percentages",
+  "description": "Searches for all the languages ​​used by a given github user and returns the average values ​​in percentages",
   "repository": {
     "type": "git",
     "url": "https://github.com/atrincas/github-language-usage.git"
