@@ -26,11 +26,10 @@ repos (number): Returns the first _n_ elements from the repositories. The defaul
 You'll need an Github OAuth token with the
 [repo scope](https://docs.github.com/en/developers/apps/scopes-for-oauth-apps).
 
-In Javascript:
+In Javascript (Typescript):
 
 ```javascript
-const githubLanguageUsage = require('github-language-usage')
-// Or ES6: import { githubLanguageUsage } from 'github-language-usage'
+import { githubLanguageUsage } from 'github-language-usage'
 
 async function asyncCall() {
   const result = await githubLanguageUsage('<YOUR_TOKEN>', '<GITHUB_USER_NAME>')
