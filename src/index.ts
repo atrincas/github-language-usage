@@ -79,7 +79,7 @@ function createTotals(repos: Repository[]) {
   return percentages.sort((a, b) => b.percentage - a.percentage)
 }
 
-export async function githubLanguageUsage(key: string, user: string, repos = 100, lang = 100) {
+export async function githubLanguageUsage(token: string, user: string, repos = 100, lang = 100) {
   const endpoint = 'https://api.github.com/graphql'
   const variables = {
     user,
@@ -109,7 +109,7 @@ export async function githubLanguageUsage(key: string, user: string, repos = 100
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${key}`
+      'Authorization': `Bearer ${token}`
     },
     body: JSON.stringify({ query, variables })
   })
