@@ -1,0 +1,27 @@
+{
+  "name": "github-language-usage",
+  "version": "1.0.0",
+  "description": "Searches for all the languages ​​used by a given github user and returns the values ​​in percentages",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "github",
+    "user",
+    "languages"
+  ],
+  "author": "Adam Trincas",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.26"
+  }
+}
