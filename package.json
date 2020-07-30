@@ -1,6 +1,6 @@
 {
   "name": "github-language-usage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Searches for all the languages ​​used by a given github user and returns the average values ​​in percentages",
   "repository": {
     "type": "git",
