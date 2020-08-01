@@ -59,8 +59,8 @@ repos (number): This is optional. It will search within the first _n_ elements f
 repositories. The default is 100
 ```
 
-## Realworld example
+## Real world example
 
-I personally use it to showcase my github language usage on my personal website:
+I use it to showcase my github language usage on my [personal website](https://adamtrincas.dev/):
 
 ![](https://images2.imgbox.com/1f/c3/V8E4upe0_o.png)

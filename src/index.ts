@@ -79,7 +79,27 @@ function createTotals(repos: Repository[]) {
   return percentages.sort((a, b) => b.percentage - a.percentage)
 }
 
+function checkParams(token: string, user: string) {
+  if (typeof token === 'undefined') {
+    try {
+      throw new TypeError('No arguments were provided')
+    } catch (err) {
+      console.error(err.name + ':', err.message)
+      throw err
+    }
+  } else if (typeof user === 'undefined') {
+    try {
+      throw new TypeError('No user was provided')
+    } catch (err) {
+      console.error(err.name + ':', err.message)
+      throw err
+    }
+  }
+}
+
 export async function githubLanguageUsage(token: string, user: string, repos = 100) {
+  checkParams(token, user)
+
   const endpoint = 'https://api.github.com/graphql'
   const variables = {
     user,
@@ -112,17 +132,33 @@ export async function githubLanguageUsage(token: string, user: string, repos = 1
     },
     body: JSON.stringify({ query, variables })
   })
-    .then((response: any) => response.json())
+    .then((response: any) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        try {
+          throw new TypeError(
+            `Error while fetching data from Github: ${response.status} ${response.statusText}`
+          )
+        } catch (err) {
+          console.error(err.name + ':', err.message)
+          throw err
+        }
+      }
+    })
     .then((data: any) => {
       return data
     })
     .catch((e: Error) => {
       console.log(e)
+      throw e
     })
+
+  if (result.errors) {
+    result.errors.forEach((error: TypeError) => {
+      throw new TypeError(error.message)
+    })
+  }
 
   return createTotals(result.data.user.repositories.nodes)
 }
-
-// export = githubLanguageUsage
-// export as namespace githubLanguageUsage
-// module.exports.githubLanguageUsage = githubLanguageUsage
