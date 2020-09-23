@@ -23,7 +23,7 @@
   "author": "Adam Trincas",
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": ">=2.6.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.26"
